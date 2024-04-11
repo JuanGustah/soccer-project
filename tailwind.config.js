@@ -5,7 +5,7 @@ export default {
     colors: {
       lime: "#00FB00",
       black: "#000000",
-      dark: "#000606",
+      dark: "#1A1A1A",
       white: "#FFFFFF",
       snow: "#F6F6F6",
       metal: "#D6D6D6",
