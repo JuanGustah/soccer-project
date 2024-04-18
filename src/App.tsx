@@ -1,5 +1,8 @@
 // import useFetch from "./hooks/useFetch";
 
+import React from "react";
+import Header from "./templates/Header";
+
 function App() {
   // const { isSuccess, data } = useFetch({
   //   key: "date",
@@ -8,7 +11,12 @@ function App() {
   // console.log(data);
   // return isSuccess ? <h1>App</h1> : <p>aguarde</p>;
 
-  return <h1>App</h1>;
+  return (
+    <React.Fragment>
+      <Header />
+      <h1>App</h1>
+    </React.Fragment>
+  );
 }
 
 export default App;

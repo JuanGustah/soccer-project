@@ -1,8 +1,8 @@
 import IconButton from "./IconButton";
 
-import Notification from "../assets/notification.svg?react";
-import Plus from "../assets/plus.svg?react";
-import VersusIcon from "../assets/x.png";
+import Notification from "../assets/icons/notification.svg?react";
+import Plus from "../assets/icons/plus.svg?react";
+import VersusIcon from "../assets/icons/x.png";
 
 type Team = {
   name: string;
@@ -16,12 +16,7 @@ interface FixtureProps {
   away: Team;
 }
 
-export default function Fixture({
-  id,
-  epochTimestamp,
-  home,
-  away,
-}: FixtureProps) {
+export default function Fixture({ epochTimestamp, home, away }: FixtureProps) {
   const convertedDate = new Date(epochTimestamp * 1000);
   const localTime = new Intl.DateTimeFormat("pt-BR", {
     timeStyle: "short",
