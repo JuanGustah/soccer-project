@@ -31,7 +31,11 @@ export default {
       montserrat: "Montserrat, sans-serif",
       righteous: "Righteous, display",
     },
-    extend: {},
+    extend: {
+      zIndex: {
+        negative: "-1",
+      },
+    },
   },
   plugins: [],
 };
