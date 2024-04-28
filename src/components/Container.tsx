@@ -1,5 +1,9 @@
 import React from "react";
 
-export default function Container({ children }: { children: React.ReactNode }) {
-  return <div className="mx-14">{children}</div>;
+interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
+}
+
+export default function Container({ children, className }: ContainerProps) {
+  return <div className={`mx-14 mb-10 ${className}`}>{children}</div>;
 }
