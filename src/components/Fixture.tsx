@@ -23,20 +23,24 @@ export default function Fixture({ epochTimestamp, home, away }: FixtureProps) {
   }).format(convertedDate);
 
   return (
-    <div className="bg-snow text-dark h-20 px-14 py-5 flex justify-between items-center rounded-2xl">
+    <div className="bg-snow text-dark h-20 px-14 py-5 grid grid-cols-5 items-center rounded-2xl">
       <p className="text-sm font-bold">{localTime}</p>
-      <div className="flex items-center gap-10">
-        <div className="flex items-center gap-5">
+      <div className="col-span-3 grid grid-cols-1-0.1-1 items-center gap-8">
+        <div className="justify-self-end flex items-center gap-5">
           <p className="font-semi-bold text-sm">{home.name}</p>
-          <img src={home.logo} alt="Home Team" className="h-12 w-12" />
+          <img src={home.logo} alt="Home Team" className="h-11" />
         </div>
-        <img src={VersusIcon} alt="Versus Icon" />
-        <div className="flex items-center gap-5">
-          <img src={away.logo} alt="Away Team" className="h-12 w-12" />
+        <img
+          src={VersusIcon}
+          alt="Versus Icon"
+          className="self-center justify-self-center"
+        />
+        <div className="justify-self-start flex items-center gap-5">
+          <img src={away.logo} alt="Away Team" className="h-11" />
           <p className="font-semi-bold text-sm">{away.name}</p>
         </div>
       </div>
-      <div className="flex gap-8">
+      <div className="flex gap-8 justify-self-end">
         <IconButton icon={Notification} />
         <IconButton icon={Plus} />
       </div>

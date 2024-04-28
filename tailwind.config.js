@@ -35,6 +35,9 @@ export default {
       zIndex: {
         negative: "-1",
       },
+      gridTemplateColumns: {
+        "1-0.1-1": "1fr 0.1fr 1fr",
+      },
     },
   },
   plugins: [],
