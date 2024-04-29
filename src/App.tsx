@@ -41,7 +41,7 @@ function App() {
 
   const { isSuccess, data } = useFetch({
     key: "date",
-    value: "2024-04-17",
+    value: (new Date()).toISOString().split("T")[0],
   });
 
   if (isSuccess) {
