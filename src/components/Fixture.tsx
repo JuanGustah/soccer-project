@@ -16,7 +16,12 @@ interface FixtureProps {
   away: Team;
 }
 
-export default function Fixture({ epochTimestamp, home, away }: FixtureProps) {
+export default function Fixture({
+  id,
+  epochTimestamp,
+  home,
+  away,
+}: FixtureProps) {
   const convertedDate = new Date(epochTimestamp * 1000);
   const localTime = new Intl.DateTimeFormat("pt-BR", {
     timeStyle: "short",
@@ -42,7 +47,7 @@ export default function Fixture({ epochTimestamp, home, away }: FixtureProps) {
       </div>
       <div className="flex gap-8 justify-self-end">
         <IconButton icon={Notification} />
-        <IconButton icon={Plus} />
+        <IconButton icon={Plus} tag="link" to={`details/${id}`} />
       </div>
     </div>
   );
