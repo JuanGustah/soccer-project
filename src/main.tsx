@@ -4,7 +4,7 @@ import "./index.css";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Details from "./pages/Details.tsx";
+import Details, { loader as detailsLoader } from "./pages/Details.tsx";
 import Home from "./pages/Home.tsx";
 
 const client = new QueryClient({
@@ -25,8 +25,9 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/details",
+        path: "/details/:fixtureId",
         element: <Details />,
+        loader: detailsLoader,
       },
     ],
   },
