@@ -66,6 +66,7 @@ export default function Home() {
             {Object.keys(selectedFixturesToday).map((fixtureId) => {
               return (
                 <FixtureList
+                  key={fixtureId}
                   fixtures={selectedFixturesToday[Number(fixtureId)]}
                 />
               );
