@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       {
         path: "/details/:fixtureId",
         element: <Details />,
-        loader: detailsLoader,
+        loader: detailsLoader.bind(null,client),
       },
     ],
   },
