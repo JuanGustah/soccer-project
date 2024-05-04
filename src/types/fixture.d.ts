@@ -71,7 +71,7 @@ export declare type fixtureDetails = fixture & {
   events: {
     time: {
       elapsed: number;
-      extra: boolean;
+      extra: number;
     };
     team: {
       id: number;

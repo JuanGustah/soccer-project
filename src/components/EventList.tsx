@@ -70,22 +70,18 @@ function generateDescriptionElementEvent(
   return message;
 }
 
-function generateTimeEvent(time: number, extra: boolean | null) {
-  let localeTime = time;
+function generateTimeEvent(time: number, extra: number | null) {
+  let localeTime = String(time);
   let stage = "1T";
 
-  if (time > 45 && extra) {
-    stage = "1T+AC";
+  if (extra) {
+    localeTime = time + "+" + extra;
+    stage = "AC";
   }
 
   if (time > 45 && !extra) {
-    localeTime = time - 45;
+    localeTime = String(Number(time) - 45);
     stage = "2T";
-  }
-
-  if (time > 90 && !extra) {
-    localeTime = time - 45;
-    stage = "2T+AC";
   }
 
   return { time: String(localeTime).padStart(2, "0"), stage };
