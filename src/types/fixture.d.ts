@@ -66,3 +66,82 @@ export declare type fixture = {
     };
   };
 };
+
+export declare type fixtureDetails = fixture & {
+  events: {
+    time: {
+      elapsed: number;
+      extra: boolean;
+    };
+    team: {
+      id: number;
+      name: string;
+      logo: string;
+    };
+    player: {
+      id: number;
+      name: string;
+    };
+    assist: {
+      id: number;
+      name: string;
+    };
+    type: "Card";
+    detail: string;
+    comments: string;
+  }[];
+  lineups: {
+    team: {
+      id: number;
+      name: string;
+      logo: string;
+    };
+    coach: {
+      id: number;
+      name: string;
+    };
+    formation: string;
+    startXI: {
+      player: {
+        id: number;
+        name: string;
+        number: number;
+        pos: string;
+      };
+    }[];
+    substitutes: {
+      player: {
+        id: number;
+        name: string;
+        number: number;
+        pos: string;
+      };
+    }[];
+  }[];
+  statistics: {
+    team: {
+      id: number;
+      name: string;
+      logo: string;
+    };
+    statistics: {
+      type: string;
+      value: number;
+    }[];
+  }[];
+  players: {
+    team: {
+      id: number;
+      name: string;
+      logo: string;
+      update: string;
+    };
+    players: {
+      player: {
+        id: number;
+        name: string;
+        photo: string;
+      };
+    }[];
+  }[];
+};

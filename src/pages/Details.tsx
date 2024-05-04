@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData, LoaderFunctionArgs } from "react-router-dom";
+import { QueryClient } from "@tanstack/react-query";
+import { AxiosResponse } from "axios";
 
 import Container from "../components/Container";
+import ButtonGroup from "../components/ButtonGroup";
+
+import { fixtureDetails } from "../types/fixture";
+import api from "../services/api";
 
 import Background from "../assets/images/background_details.png";
 import Tactics from "../assets/icons/tactics.svg";
-import { QueryClient } from "@tanstack/react-query";
-import api from "../services/api";
-import { AxiosResponse } from "axios";
-import { fixture } from "../types/fixture";
+import EventList from "../components/EventList";
+import { buttonGroupDefinition } from "../types/buttonGroup";
 
 const STATUS_RELATION = {
   TBD: "Sem data definida",
@@ -44,7 +48,7 @@ export const loader = async (
     queryKey: ["fixture", "details", params.fixtureId],
     queryFn: () => fetchHttp(params.fixtureId!),
   });
-  const fixture: fixture = response.data.response[0];
+  const fixture: fixtureDetails = response.data.response[0];
   return { fixture };
 };
 
@@ -53,8 +57,33 @@ function handleFixtureStatus(status: keyof typeof STATUS_RELATION) {
 }
 
 export default function Details() {
-  const { fixture } = useLoaderData() as { fixture: fixture };
-  // console.log(fixture);
+  const { fixture } = useLoaderData() as { fixture: fixtureDetails };
+  console.log(fixture);
+
+  const buttonGroupDefinition: buttonGroupDefinition = {
+    resume: {
+      label: "Resumo",
+      contentControl: (
+        <EventList events={fixture.events} idTeamHome={fixture.teams.home.id} />
+      ),
+      contentClassname: "flex flex-col items-center gap-6",
+    },
+    statistics: {
+      label: "Estatísticas",
+      contentControl: <p>Container 2</p>,
+      contentClassname: "text-white",
+    },
+    lineup: {
+      label: "Escalação",
+      contentControl: <p>Container 3</p>,
+      contentClassname: "text-white",
+    },
+  };
+  const buttonGroupTexts = Object.keys(buttonGroupDefinition);
+
+  const [activeContent, setActiveContent] = useState<
+    keyof buttonGroupDefinition
+  >(buttonGroupTexts[0] as keyof buttonGroupDefinition);
 
   return (
     <React.Fragment>
@@ -104,6 +133,24 @@ export default function Details() {
               {fixture.teams.away.name}
             </p>
           </div>
+        </div>
+        <ButtonGroup
+          buttonGroupDefinition={buttonGroupDefinition}
+          activeLabel={activeContent}
+          stateDispatch={setActiveContent}
+        />
+        <div className="mt-12">
+          {Object.keys(buttonGroupDefinition).map((buttonTag) => {
+            return (
+              <div
+                className={`${activeContent != buttonTag ? "hidden" : ""} ${
+                  buttonGroupDefinition[buttonTag].contentClassname
+                }`}
+              >
+                {buttonGroupDefinition[buttonTag].contentControl}
+              </div>
+            );
+          })}
         </div>
       </Container>
     </React.Fragment>
