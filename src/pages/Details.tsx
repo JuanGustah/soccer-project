@@ -56,15 +56,27 @@ function handleFixtureStatus(status: keyof typeof STATUS_RELATION) {
   return STATUS_RELATION[status] || null;
 }
 
+function orderEventsFunction(
+  event: fixtureDetails["events"][0],
+  nextEvent: fixtureDetails["events"][0]
+) {
+  const eventTime = event.time.elapsed;
+  const nextEventTime = nextEvent.time.elapsed;
+
+  return eventTime - nextEventTime;
+}
+
 export default function Details() {
   const { fixture } = useLoaderData() as { fixture: fixtureDetails };
+  const events = fixture.events.sort(orderEventsFunction);
+
   console.log(fixture);
 
   const buttonGroupDefinition: buttonGroupDefinition = {
     resume: {
       label: "Resumo",
       contentControl: (
-        <EventList events={fixture.events} idTeamHome={fixture.teams.home.id} />
+        <EventList events={events} idTeamHome={fixture.teams.home.id} />
       ),
       contentClassname: "flex flex-col items-center gap-6",
     },
