@@ -5,6 +5,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .btn-group button {
+    @apply text-white font-semi-bold text-xs bg-opacity-0 rounded-full py-2 px-6;
+  }
+  .btn-group .btn-active {
+    @apply text-dark font-extra-bold bg-lime bg-opacity-100;
+  }
+}
+
 body {
   background-color: #000;
 }

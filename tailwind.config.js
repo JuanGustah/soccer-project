@@ -38,6 +38,9 @@ export default {
       gridTemplateColumns: {
         "1-0.1-1": "1fr 0.1fr 1fr",
       },
+      borderRadius: {
+        xl: "1.5rem",
+      },
     },
   },
   plugins: [],
