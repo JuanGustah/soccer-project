@@ -9,6 +9,7 @@ export default {
       white: "#FFFFFF",
       snow: "#F6F6F6",
       metal: "#D6D6D6",
+      cobalt: "#3F3F3F",
     },
     fontWeight: {
       regular: "400",
@@ -40,6 +41,9 @@ export default {
       },
       borderRadius: {
         xl: "1.5rem",
+      },
+      width: {
+        115: "28.75rem",
       },
     },
   },

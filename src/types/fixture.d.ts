@@ -126,7 +126,7 @@ export declare type fixtureDetails = fixture & {
     };
     statistics: {
       type: string;
-      value: number;
+      value: number | string;
     }[];
   }[];
   players: {

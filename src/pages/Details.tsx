@@ -13,6 +13,7 @@ import Background from "../assets/images/background_details.png";
 import Tactics from "../assets/icons/tactics.svg";
 import EventList from "../components/EventList";
 import { buttonGroupDefinition } from "../types/buttonGroup";
+import Statistics from "../components/Statistics";
 
 const STATUS_RELATION = {
   TBD: "Sem data definida",
@@ -82,8 +83,8 @@ export default function Details() {
     },
     statistics: {
       label: "Estatísticas",
-      contentControl: <p>Container 2</p>,
-      contentClassname: "text-white",
+      contentControl: <Statistics statistics={fixture.statistics} />,
+      contentClassname: "flex flex-col items-center gap-11",
     },
     lineup: {
       label: "Escalação",
@@ -95,7 +96,7 @@ export default function Details() {
 
   const [activeContent, setActiveContent] = useState<
     keyof buttonGroupDefinition
-  >(buttonGroupTexts[0] as keyof buttonGroupDefinition);
+  >(buttonGroupTexts[1] as keyof buttonGroupDefinition);
 
   return (
     <React.Fragment>
@@ -158,6 +159,7 @@ export default function Details() {
                 className={`${activeContent != buttonTag ? "hidden" : ""} ${
                   buttonGroupDefinition[buttonTag].contentClassname
                 }`}
+                key={buttonTag}
               >
                 {buttonGroupDefinition[buttonTag].contentControl}
               </div>
