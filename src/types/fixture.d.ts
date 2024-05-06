@@ -107,6 +107,7 @@ export declare type fixtureDetails = fixture & {
         name: string;
         number: number;
         pos: string;
+        grid: string;
       };
     }[];
     substitutes: {

@@ -12,6 +12,9 @@
   .btn-group .btn-active {
     @apply text-dark font-extra-bold bg-lime bg-opacity-100;
   }
+  .shadow-text {
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 85%);
+  }
 }
 
 body {

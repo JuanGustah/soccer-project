@@ -14,6 +14,7 @@ import Tactics from "../assets/icons/tactics.svg";
 import EventList from "../components/EventList";
 import { buttonGroupDefinition } from "../types/buttonGroup";
 import Statistics from "../components/Statistics";
+import Lineup from "../components/Lineup";
 
 const STATUS_RELATION = {
   TBD: "Sem data definida",
@@ -70,8 +71,15 @@ function orderEventsFunction(
 export default function Details() {
   const { fixture } = useLoaderData() as { fixture: fixtureDetails };
   const events = fixture.events.sort(orderEventsFunction);
-
-  console.log(fixture);
+  const statusFixtureNotStarted = [
+    "TBD",
+    "NS",
+    "SUSP",
+    "INT",
+    "PST",
+    "CANC",
+    "ABD",
+  ];
 
   const buttonGroupDefinition: buttonGroupDefinition = {
     resume: {
@@ -88,7 +96,7 @@ export default function Details() {
     },
     lineup: {
       label: "Escalação",
-      contentControl: <p>Container 3</p>,
+      contentControl: <Lineup lineups={fixture.lineups} />,
       contentClassname: "text-white",
     },
   };
@@ -96,7 +104,7 @@ export default function Details() {
 
   const [activeContent, setActiveContent] = useState<
     keyof buttonGroupDefinition
-  >(buttonGroupTexts[1] as keyof buttonGroupDefinition);
+  >(buttonGroupTexts[0] as keyof buttonGroupDefinition);
 
   return (
     <React.Fragment>
@@ -147,25 +155,30 @@ export default function Details() {
             </p>
           </div>
         </div>
-        <ButtonGroup
-          buttonGroupDefinition={buttonGroupDefinition}
-          activeLabel={activeContent}
-          stateDispatch={setActiveContent}
-        />
-        <div className="mt-12">
-          {Object.keys(buttonGroupDefinition).map((buttonTag) => {
-            return (
-              <div
-                className={`${activeContent != buttonTag ? "hidden" : ""} ${
-                  buttonGroupDefinition[buttonTag].contentClassname
-                }`}
-                key={buttonTag}
-              >
-                {buttonGroupDefinition[buttonTag].contentControl}
-              </div>
-            );
-          })}
-        </div>
+
+        {!statusFixtureNotStarted.includes(fixture.fixture.status.short) ? (
+          <React.Fragment>
+            <ButtonGroup
+              buttonGroupDefinition={buttonGroupDefinition}
+              activeLabel={activeContent}
+              stateDispatch={setActiveContent}
+            />
+            <div className="mt-12">
+              {Object.keys(buttonGroupDefinition).map((buttonTag) => {
+                return (
+                  <div
+                    className={`${activeContent != buttonTag ? "hidden" : ""} ${
+                      buttonGroupDefinition[buttonTag].contentClassname
+                    }`}
+                    key={buttonTag}
+                  >
+                    {buttonGroupDefinition[buttonTag].contentControl}
+                  </div>
+                );
+              })}
+            </div>
+          </React.Fragment>
+        ) : null}
       </Container>
     </React.Fragment>
   );

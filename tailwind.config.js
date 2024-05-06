@@ -19,7 +19,8 @@ export default {
       "extra-bold": "800",
     },
     fontSize: {
-      xxs: "1rem",
+      "4xs": "0.75rem",
+      "2xs": "1rem",
       xs: "1.25rem",
       sm: "1.5rem",
       md: "1.75rem",
