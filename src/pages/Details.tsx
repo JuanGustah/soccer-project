@@ -70,6 +70,7 @@ function orderEventsFunction(
 
 export default function Details() {
   const { fixture } = useLoaderData() as { fixture: fixtureDetails };
+
   const events = fixture.events.sort(orderEventsFunction);
   const statusFixtureNotStarted = [
     "TBD",
@@ -123,14 +124,14 @@ export default function Details() {
         <h3 className="font-medium text-md text-metal">
           {fixture.league.round}
         </h3>
-        <div className="flex justify-center items-center gap-20 mt-14">
+        <div className="flex justify-center items-start gap-20 mt-14">
           <div className="flex flex-col items-center gap-4">
             <img src={fixture.teams.home.logo} alt="Home Team" />
-            <p className="text-white text-lg font-bold">
+            <p className="text-white text-lg font-bold w-52 text-center">
               {fixture.teams.home.name}
             </p>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center mt-6">
             <p className="text-white text-xs font-regular">
               {handleFixtureStatus(
                 fixture.fixture.status.short as keyof typeof STATUS_RELATION
@@ -150,7 +151,7 @@ export default function Details() {
           </div>
           <div className="flex flex-col items-center gap-4">
             <img src={fixture.teams.away.logo} alt="Away Team" />
-            <p className="text-white text-lg font-bold">
+            <p className="text-white text-lg font-bold w-52 text-center">
               {fixture.teams.away.name}
             </p>
           </div>
