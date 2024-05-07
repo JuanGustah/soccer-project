@@ -67,6 +67,30 @@ function generateDescriptionElementEvent(
     );
   }
 
+  if (type === "var") {
+    const messagesVar = {
+      "goal disallowed": `Gol anulado para ${team}`,
+      "goal confirmado": `Gol confirmado para ${team}`,
+      "card upgrade": `Cartão vermelho para ${player}`,
+      "card cancelled": `Cartão vermelho de ${player} anulado`,
+      "penalty confirmed": `Pênalti marcado para ${team}`,
+      "penalty cancelled": `Pênalti anulado para ${team}`,
+    };
+
+    const messageVar = Object.keys(messagesVar).reduce(
+      (acc, message) =>
+        detail.toLowerCase().includes(message) ? messagesVar[message] : acc,
+      ""
+    );
+
+    message = (
+      <React.Fragment>
+        Após árbitro de vídeo chamar, juiz vai ao VAR.{" "}
+        <strong>{messageVar}</strong>
+      </React.Fragment>
+    );
+  }
+
   return message;
 }
 
@@ -132,11 +156,13 @@ export default function EventList({ events, idTeamHome }: EventListProps) {
             <div
               className={`flex items-center gap-7 ${rowOrderClass} ${textAlignClass}`}
             >
-              <img
-                src={generateIconEvent(eventType, event.detail)}
-                alt="ball icon"
-                className="h-16"
-              />
+              <div className="flex justify-center items-center w-16">
+                <img
+                  src={generateIconEvent(eventType, event.detail)}
+                  alt="ball icon"
+                  className="h-16"
+                />
+              </div>
               <div>
                 <h5 className="font-semi-bold text-md">
                   {generateTitleEvent(eventType)}
