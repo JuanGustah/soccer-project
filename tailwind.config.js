@@ -9,6 +9,7 @@ export default {
       white: "#FFFFFF",
       snow: "#F6F6F6",
       metal: "#D6D6D6",
+      iron: "#acacac",
       cobalt: "#3F3F3F",
     },
     fontWeight: {
