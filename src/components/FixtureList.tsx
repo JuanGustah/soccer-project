@@ -1,9 +1,17 @@
 import { fixture } from "../types/fixture";
 import Fixture from "./Fixture";
 
-export default function FixtureList({ fixtures }: { fixtures: fixture[] }) {
+interface IFixtureListProps {
+  fixtures: fixture[];
+  isFavoriteTeamFixtureList: boolean;
+}
+
+export default function FixtureList({
+  fixtures,
+  isFavoriteTeamFixtureList,
+}: IFixtureListProps) {
   return (
-    <div className="flex flex-col gap-y-6 mt-8">
+    <div className="flex flex-col gap-y-6 mt-3">
       <h4 className="font-medium text-sm text-snow">
         {fixtures[0].league.name}
       </h4>
@@ -16,6 +24,7 @@ export default function FixtureList({ fixtures }: { fixtures: fixture[] }) {
               epochTimestamp={fixture.fixture.timestamp}
               away={fixture.teams.away}
               home={fixture.teams.home}
+              showDate={isFavoriteTeamFixtureList}
             />
           );
         })}
