@@ -1,22 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import api from "../services/api";
 
-type queryParam = {
-  key: string;
-  value: string;
-};
+import { fetchHttp } from "../services/http";
 
-async function fetchHttp(queryParam: queryParam) {
-  const response = await api.get(
-    `fixtures?${queryParam.key}=${queryParam.value}`
-  );
-  return response;
-}
+import { queryParam } from "../types/queryParams";
 
-export default function useFetch(queryParam: queryParam) {
+export default function useFetch(queryParams: queryParam[]) {
   const query = useQuery({
-    queryFn: () => fetchHttp(queryParam),
-    queryKey: ["fixtures-by-date", queryParam.value],
+    queryFn: () => fetchHttp(queryParams),
+    queryKey: queryParams.map((query) => ["fixtures-by" + query.key]),
     staleTime: 60 * 60 * 24 * 1000,
   });
 
