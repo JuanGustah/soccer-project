@@ -1,6 +1,5 @@
 import IconButton from "./IconButton";
 
-import Notification from "../assets/icons/notification.svg?react";
 import Plus from "../assets/icons/plus.svg?react";
 import VersusIcon from "../assets/icons/x.png";
 import date from "../services/date";
@@ -32,7 +31,7 @@ export default function Fixture({
   const textDate = convertedDate.calendar();
 
   return (
-    <div className="bg-snow text-dark h-20 px-14 grid grid-cols-5 items-center rounded-2xl">
+    <div className="bg-snow text-dark h-20 px-16 grid grid-cols-5 items-center rounded-2xl">
       <div className="flex flex-col gap-2">
         {showDate ? (
           <p className="text-2xs text-iron font-semi-bold leading-3">
@@ -57,8 +56,7 @@ export default function Fixture({
         </div>
       </div>
       <div className="flex gap-8 justify-self-end">
-        <IconButton icon={Notification} />
-        <IconButton icon={Plus} tag="link" to={`details/${id}`} />
+        <IconButton icon={Plus} to={`details/${id}`} />
       </div>
     </div>
   );
