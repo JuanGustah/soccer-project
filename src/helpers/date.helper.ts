@@ -22,4 +22,4 @@ dayjs.updateLocale("pt-br", {
 
 dayjs.tz.setDefault("America/Recife");
 
-export default dayjs;
+export { dayjs as dateHelper };
