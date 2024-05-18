@@ -2,10 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 
 import { fetchHttp } from "@/services/http";
 
-import { queryParam } from "./types";
+import { fetchQueryParam } from "@/types/fetchQueryParam";
 
 export default function useFetch<T>(
-  queryParams: queryParam[],
+  queryParams: fetchQueryParam[],
   staleTime: number
 ) {
   const query = useQuery({
