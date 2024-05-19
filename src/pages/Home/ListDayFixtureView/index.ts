@@ -1,7 +1,7 @@
 import { fixtureResponse } from "@/types/fixtureResponse";
-import ListDayFixtureView from "./ListDayFixtureView";
+import { selectedFixtures } from "@/types/selectedFixtures";
 
-import { selectedFixtures } from "./types";
+import ListDayFixtureView from "./ListDayFixtureView";
 
 export function populateFixturesToday(
   fixturesResponse: fixtureResponse,

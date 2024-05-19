@@ -1,9 +1,10 @@
 import FixtureList from "@/components/FixtureList.tsx";
 
-import useTodayFixtures from "@/hooks/useTodayFixtures";
+import { useTodayFixtures } from "@/hooks/useTodayFixtures";
 
+import { selectedFixtures } from "@/types/selectedFixtures";
 import { fixtureResponse } from "@/types/fixtureResponse";
-import { IListDayFixtureView, selectedFixtures } from "./types";
+import { IListDayFixtureView } from "./types";
 
 import { populateFixturesToday } from ".";
 
