@@ -1,8 +1,8 @@
 import api from "./api";
-import { queryParam } from "@/types/queryParams";
+import { fetchQueryParam } from "@/types/fetchQueryParam";
 
-export async function fetchHttp<T>(queryParam: queryParam[]) {
-  const params = queryParam.reduce(
+export async function fetchHttp<T>(fetchQueryParams: fetchQueryParam[]) {
+  const params = fetchQueryParams.reduce(
     (acc, query) => acc + query.key + "=" + query.value + "&",
     ""
   );
