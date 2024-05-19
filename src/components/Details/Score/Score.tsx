@@ -17,9 +17,9 @@ export default function Score({ fixture }: IScore) {
     handleFixtureStatus(status.short as fixtureStatus) ?? status.long;
 
   return (
-    <div className="flex justify-center items-start gap-20 mt-14">
+    <section className="flex justify-center items-start gap-20 mt-14">
       <div className="flex flex-col items-center gap-4">
-        <img src={home.logo} alt="Home Team" />
+        <img src={home.logo} alt="Home Team logo" />
         <p className="text-white text-lg font-bold w-52 text-center">
           {home.name}
         </p>
@@ -27,23 +27,21 @@ export default function Score({ fixture }: IScore) {
       <div className="flex flex-col items-center mt-6">
         <p className="text-white text-xs font-regular">{statusText}</p>
         <div className="flex gap-7">
-          <span className="text-white text-4xl font-regular font-righteous">
+          <p className="text-white text-4xl font-regular font-righteous">
             {homeGoalsText}
-          </span>
-          <span className="text-white text-4xl font-bold font-montserrat">
-            -
-          </span>
-          <span className="text-white text-4xl font-regular font-righteous">
+          </p>
+          <p className="text-white text-4xl font-bold font-montserrat">-</p>
+          <p className="text-white text-4xl font-regular font-righteous">
             {awayGoalsText}
-          </span>
+          </p>
         </div>
       </div>
       <div className="flex flex-col items-center gap-4">
-        <img src={away.logo} alt="Away Team" />
+        <img src={away.logo} alt="Away Team logo" />
         <p className="text-white text-lg font-bold w-52 text-center">
           {away.name}
         </p>
       </div>
-    </div>
+    </section>
   );
 }
