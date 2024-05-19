@@ -1,3 +1,3 @@
 import useTodayFixtures from "./useTodayFixtures";
 
-export default useTodayFixtures;
+export { useTodayFixtures };
