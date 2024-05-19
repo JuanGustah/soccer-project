@@ -1,8 +1,9 @@
 import IconButton from "./IconButton";
 
+import { dateHelper } from "@/helpers/date.helper";
+
 import Plus from "../assets/icons/plus.svg?react";
 import VersusIcon from "../assets/icons/x.png";
-import date from "../services/date";
 
 type Team = {
   name: string;
@@ -25,7 +26,7 @@ export default function Fixture({
   showDate,
 }: FixtureProps) {
   const convertedEpochTimestamp = epochTimestamp * 1000;
-  const convertedDate = date(convertedEpochTimestamp);
+  const convertedDate = dateHelper(convertedEpochTimestamp);
   const time = convertedDate.format("HH:mm");
 
   const textDate = convertedDate.calendar();
