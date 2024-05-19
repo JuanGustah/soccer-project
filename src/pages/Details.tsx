@@ -3,7 +3,7 @@ import { useLoaderData, LoaderFunctionArgs } from "react-router-dom";
 import { QueryClient } from "@tanstack/react-query";
 import { AxiosResponse } from "axios";
 
-import Container from "../components/Container";
+import { Container } from "@/components/UI/Container";
 import ButtonGroup from "../components/ButtonGroup";
 
 import { fixtureDetails } from "../types/fixture";
@@ -114,7 +114,7 @@ export default function Details() {
         alt="background image"
         className="absolute inset-0 w-full z-negative"
       />
-      <Container className="mt-14">
+      <Container className="mt-14" htmlTag="main">
         <span className="flex items-center gap-2">
           <h2 className="font-extra-bold text-xl text-white">
             Detalhes da Partida

@@ -1,10 +1,10 @@
 import React from "react";
 
-import Container from "../../components/Container";
-
-import Background from "../../assets/images/background_list.png";
+import { Container } from "@/components/UI/Container";
 import ListDayFixtureView from "./ListDayFixtureView";
 import ListFavoriteTeamFixtureView from "./ListFavoriteTeamFixtureView";
+
+import Background from "@/assets/images/background_list.png";
 
 export default function Home() {
   const selectedLeaguesId = [
@@ -26,7 +26,7 @@ export default function Home() {
         alt="background image"
         className="absolute inset-0 w-full z-negative"
       />
-      <Container className="mt-14">
+      <Container className="mt-14" htmlTag="main">
         <ListDayFixtureView selectedLeaguesId={selectedLeaguesId} />
         <ListFavoriteTeamFixtureView favoriteTeams={favoriteTeams} />
       </Container>
