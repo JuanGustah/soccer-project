@@ -1,4 +1,4 @@
-export declare type queryParam = {
+export type fetchQueryParam = {
   key: string;
   value: string;
 };
