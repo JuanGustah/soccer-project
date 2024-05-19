@@ -1,11 +1,5 @@
-import React from "react";
-import { Link, LinkProps } from "react-router-dom";
-
-interface IIconButtonProps extends LinkProps {
-  icon: React.FunctionComponent<
-    React.SVGProps<SVGSVGElement> & { title?: string }
-  >;
-}
+import { Link } from "react-router-dom";
+import { IIconButtonProps } from "./types";
 
 export default function IconButton({ icon: Icon, ...rest }: IIconButtonProps) {
   return (
