@@ -1,22 +1,11 @@
-import IconButton from "./IconButton";
+import IconButton from "@/components/IconButton";
 
 import { dateHelper } from "@/helpers/date.helper";
 
-import Plus from "../assets/icons/plus.svg?react";
-import VersusIcon from "../assets/icons/x.png";
+import { FixtureProps } from "./types";
 
-type Team = {
-  name: string;
-  logo: string;
-};
-
-interface FixtureProps {
-  id: number;
-  epochTimestamp: number;
-  home: Team;
-  away: Team;
-  showDate: boolean;
-}
+import Plus from "@/assets/icons/plus.svg?react";
+import VersusIcon from "@/assets/icons/x.png";
 
 export default function Fixture({
   id,
@@ -30,6 +19,8 @@ export default function Fixture({
   const time = convertedDate.format("HH:mm");
 
   const textDate = convertedDate.calendar();
+
+  const redirectLink = `details/${id}`;
 
   return (
     <div className="bg-snow text-dark h-20 px-16 grid grid-cols-5 items-center rounded-2xl">
@@ -57,7 +48,7 @@ export default function Fixture({
         </div>
       </div>
       <div className="flex gap-8 justify-self-end">
-        <IconButton icon={Plus} to={`details/${id}`} />
+        <IconButton icon={Plus} to={redirectLink} />
       </div>
     </div>
   );

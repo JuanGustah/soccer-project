@@ -1,4 +1,4 @@
-import Fixture from "@/components/Fixture";
+import { Fixture } from "@/components/Home/Fixture";
 
 import { IFixtureListProps } from "./types";
 

@@ -1,3 +1,10 @@
+export type fixtureTeam = {
+  id: number;
+  name: string;
+  logo: string;
+  winner: boolean;
+};
+
 export declare type fixture = {
   fixture: {
     id: number;
@@ -30,18 +37,8 @@ export declare type fixture = {
     round: string;
   };
   teams: {
-    home: {
-      id: number;
-      name: string;
-      logo: string;
-      winner: boolean;
-    };
-    away: {
-      id: number;
-      name: string;
-      logo: string;
-      winner: boolean;
-    };
+    home: fixtureTeam;
+    away: fixtureTeam;
   };
   goals: {
     home: number;
