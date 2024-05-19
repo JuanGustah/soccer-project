@@ -1,4 +1,4 @@
-import FixtureList from "@/components/FixtureList";
+import { FixtureList } from "@/components/Home/FixtureList";
 
 import { ITeamFixtureList } from "./types";
 
@@ -16,11 +16,7 @@ export function TeamFixtureList({ team, teamFixtures }: ITeamFixtureList) {
         const fixtures = teamFixtures[Number(competition)];
 
         return (
-          <FixtureList
-            key={competition}
-            fixtures={fixtures}
-            isFavoriteTeamFixtureList={true}
-          />
+          <FixtureList key={competition} fixtures={fixtures} showDate={true} />
         );
       })}
     </div>

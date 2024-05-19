@@ -1,4 +1,4 @@
-import FixtureList from "@/components/FixtureList.tsx";
+import { FixtureList } from "@/components/Home/FixtureList";
 
 import { useTodayFixtures } from "@/hooks/useTodayFixtures";
 
@@ -33,7 +33,7 @@ export default function ListDayFixtureView({
             <FixtureList
               key={fixtureId}
               fixtures={selectedFixturesToday[Number(fixtureId)]}
-              isFavoriteTeamFixtureList={false}
+              showDate={false}
             />
           );
         })}
