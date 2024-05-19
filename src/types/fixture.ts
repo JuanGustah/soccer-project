@@ -5,6 +5,29 @@ export type fixtureTeam = {
   winner: boolean;
 };
 
+export type fixtureEvent = {
+  time: {
+    elapsed: number;
+    extra: number;
+  };
+  team: {
+    id: number;
+    name: string;
+    logo: string;
+  };
+  player: {
+    id: number;
+    name: string;
+  };
+  assist: {
+    id: number;
+    name: string;
+  };
+  type: string;
+  detail: string;
+  comments: string;
+};
+
 export declare type fixture = {
   fixture: {
     id: number;
@@ -65,28 +88,7 @@ export declare type fixture = {
 };
 
 export declare type fixtureDetails = fixture & {
-  events: {
-    time: {
-      elapsed: number;
-      extra: number;
-    };
-    team: {
-      id: number;
-      name: string;
-      logo: string;
-    };
-    player: {
-      id: number;
-      name: string;
-    };
-    assist: {
-      id: number;
-      name: string;
-    };
-    type: "Card";
-    detail: string;
-    comments: string;
-  }[];
+  events: fixtureEvent[];
   lineups: {
     team: {
       id: number;

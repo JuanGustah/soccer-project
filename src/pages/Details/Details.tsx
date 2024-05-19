@@ -1,20 +1,17 @@
 import React, { useState } from "react";
-import { useLoaderData, LoaderFunctionArgs } from "react-router-dom";
-import { QueryClient } from "@tanstack/react-query";
-import { AxiosResponse } from "axios";
+import { useLoaderData } from "react-router-dom";
 
 import { Container } from "@/components/UI/Container";
-import ButtonGroup from "../components/ButtonGroup";
+import ButtonGroup from "@/components/ButtonGroup";
+import EventList from "@/components/EventList";
+import Statistics from "@/components/Statistics";
+import Lineup from "@/components/Lineup";
 
-import { fixtureDetails } from "../types/fixture";
-import api from "../services/api";
+import { fixtureDetails, fixtureEvent } from "@/types/fixture";
+import { buttonGroupDefinition } from "@/types/buttonGroup";
 
-import Background from "../assets/images/background_details.png";
-import Tactics from "../assets/icons/tactics.svg";
-import EventList from "../components/EventList";
-import { buttonGroupDefinition } from "../types/buttonGroup";
-import Statistics from "../components/Statistics";
-import Lineup from "../components/Lineup";
+import Background from "@/assets/images/background_details.png";
+import Tactics from "@/assets/icons/tactics.svg";
 
 const STATUS_RELATION = {
   TBD: "Sem data definida",
@@ -37,31 +34,11 @@ const STATUS_RELATION = {
   LIVE: "Ao vivo",
 };
 
-async function fetchHttp(id: string) {
-  const response = await api.get(`fixtures?id=${id}`);
-  return response;
-}
-
-export const loader = async (
-  queryCLient: QueryClient,
-  { params }: LoaderFunctionArgs
-) => {
-  const response: AxiosResponse = await queryCLient.ensureQueryData({
-    queryKey: ["fixture", "details", params.fixtureId],
-    queryFn: () => fetchHttp(params.fixtureId!),
-  });
-  const fixture: fixtureDetails = response.data.response[0];
-  return { fixture };
-};
-
 function handleFixtureStatus(status: keyof typeof STATUS_RELATION) {
   return STATUS_RELATION[status] || null;
 }
 
-function orderEventsFunction(
-  event: fixtureDetails["events"][0],
-  nextEvent: fixtureDetails["events"][0]
-) {
+function orderEventsFunction(event: fixtureEvent, nextEvent: fixtureEvent) {
   const eventTime = event.time.elapsed;
   const nextEventTime = nextEvent.time.elapsed;
 
