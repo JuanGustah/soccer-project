@@ -5,7 +5,7 @@ import { Container } from "@/components/UI/Container";
 import { Score } from "@/components/Details/Score";
 import { ButtonGroup } from "@/components/Details/ButtonGroup";
 
-import EventList from "@/components/EventList";
+import { EventList } from "@/components/Details/EventList";
 import Statistics from "@/components/Statistics";
 import Lineup from "@/components/Lineup";
 
