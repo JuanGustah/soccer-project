@@ -6,7 +6,7 @@ import { Score } from "@/components/Details/Score";
 import { ButtonGroup } from "@/components/Details/ButtonGroup";
 
 import { EventList } from "@/components/Details/EventList";
-import Statistics from "@/components/Statistics";
+import { StatisticList } from "@/components/Details/StatisticList";
 import Lineup from "@/components/Lineup";
 
 import { fixtureDetails, fixtureEvent } from "@/types/fixture";
@@ -75,7 +75,7 @@ export default function Details() {
                 activeButton !== "stats" ? "hidden" : ""
               } flex flex-col items-center gap-11`}
             >
-              <Statistics statistics={fixture.statistics} />
+              <StatisticList statistics={fixture.statistics} />
             </div>
 
             <div className={`${activeButton !== "lineup" ? "hidden" : ""}`}>
