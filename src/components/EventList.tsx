@@ -79,7 +79,9 @@ function generateDescriptionElementEvent(
 
     const messageVar = Object.keys(messagesVar).reduce(
       (acc, message) =>
-        detail.toLowerCase().includes(message) ? messagesVar[message] : acc,
+        detail.toLowerCase().includes(message)
+          ? messagesVar[message as keyof typeof messagesVar]
+          : acc,
       ""
     );
 
