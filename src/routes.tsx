@@ -4,7 +4,7 @@ import App from "./App";
 import Home from "./pages/Home";
 import Details, { loader as detailsLoader } from "./pages/Details";
 
-import { client } from "./main";
+import { client } from "./queryClient";
 
 const router = createBrowserRouter([
   {

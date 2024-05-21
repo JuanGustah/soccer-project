@@ -1,18 +1,11 @@
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
 
+import { client } from "./queryClient.ts";
 import { router } from "./routes.tsx";
-
-export const client = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-    },
-  },
-});
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <QueryClientProvider client={client}>
