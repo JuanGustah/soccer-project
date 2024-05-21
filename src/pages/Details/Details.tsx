@@ -7,7 +7,7 @@ import { ButtonGroup } from "@/components/Details/ButtonGroup";
 
 import { EventList } from "@/components/Details/EventList";
 import { StatisticList } from "@/components/Details/StatisticList";
-import Lineup from "@/components/Lineup";
+import { TeamsLineups } from "@/components/Details/TeamsLineups";
 
 import { fixtureDetails, fixtureEvent } from "@/types/fixture";
 import { buttonDefinition } from "@/components/Details/ButtonGroup/types";
@@ -78,8 +78,12 @@ export default function Details() {
               <StatisticList statistics={fixture.statistics} />
             </div>
 
-            <div className={`${activeButton !== "lineup" ? "hidden" : ""}`}>
-              <Lineup lineups={fixture.lineups} />
+            <div
+              className={`${
+                activeButton !== "lineup" ? "hidden" : ""
+              } flex justify-center gap-20`}
+            >
+              <TeamsLineups lineups={fixture.lineups} />
             </div>
           </section>
         ) : null}

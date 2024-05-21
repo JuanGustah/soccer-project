@@ -87,37 +87,41 @@ export declare type fixture = {
   };
 };
 
+export type playerPositionInGrid = {
+  player: {
+    id: number;
+    name: string;
+    number: number;
+    pos: string;
+    grid: string;
+  };
+};
+
+export type lineup = {
+  team: {
+    id: number;
+    name: string;
+    logo: string;
+  };
+  coach: {
+    id: number;
+    name: string;
+  };
+  formation: string;
+  startXI: playerPositionInGrid[];
+  substitutes: {
+    player: {
+      id: number;
+      name: string;
+      number: number;
+      pos: string;
+    };
+  }[];
+};
+
 export declare type fixtureDetails = fixture & {
   events: fixtureEvent[];
-  lineups: {
-    team: {
-      id: number;
-      name: string;
-      logo: string;
-    };
-    coach: {
-      id: number;
-      name: string;
-    };
-    formation: string;
-    startXI: {
-      player: {
-        id: number;
-        name: string;
-        number: number;
-        pos: string;
-        grid: string;
-      };
-    }[];
-    substitutes: {
-      player: {
-        id: number;
-        name: string;
-        number: number;
-        pos: string;
-      };
-    }[];
-  }[];
+  lineups: [lineup, lineup];
   statistics: {
     team: {
       id: number;
