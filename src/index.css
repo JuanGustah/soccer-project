@@ -15,8 +15,22 @@
   .shadow-text {
     text-shadow: 0 1px 6px rgba(0, 0, 0, 85%);
   }
+  .bg-skeleton {
+    background: linear-gradient(90deg, #8f8f8f 30%, #ebebeb 40%, #8f8f8f 50%);
+    background-size: 400% 400%;
+    animation: skeleton 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
 }
 
 body {
   background-color: #000;
+}
+
+@keyframes skeleton {
+  0% {
+    background-position: 70%;
+  }
+  100% {
+    background-position: 1%;
+  }
 }
