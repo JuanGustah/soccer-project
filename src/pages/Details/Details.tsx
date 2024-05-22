@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useRouteError } from "react-router-dom";
 
 import { Container } from "@/components/UI/Container";
 import { Score } from "@/components/Details/Score";
@@ -8,6 +8,8 @@ import { ButtonGroup } from "@/components/Details/ButtonGroup";
 import { EventList } from "@/components/Details/EventList";
 import { StatisticList } from "@/components/Details/StatisticList";
 import { TeamsLineups } from "@/components/Details/TeamsLineups";
+
+import Error from "./Error";
 
 import { fixtureDetails, fixtureEvent } from "@/types/fixture";
 import { buttonDefinition } from "@/components/Details/ButtonGroup/types";
@@ -27,13 +29,18 @@ function orderEventsFunction(event: fixtureEvent, nextEvent: fixtureEvent) {
 export type buttonGroupKeys = (typeof buttonGroup)[number]["key"];
 
 export default function Details() {
-  const { fixture } = useLoaderData() as { fixture: fixtureDetails };
-
-  const events = fixture.events.sort(orderEventsFunction);
-
+  const error = useRouteError();
+  const data = useLoaderData() as { fixture: fixtureDetails };
   const [activeButton, setActiveButton] = useState<buttonGroupKeys>(
     buttonGroup[0].key
   );
+
+  if (error) {
+    return <Error />;
+  }
+
+  const { fixture } = data;
+  const events = fixture.events.sort(orderEventsFunction);
 
   return (
     <React.Fragment>
