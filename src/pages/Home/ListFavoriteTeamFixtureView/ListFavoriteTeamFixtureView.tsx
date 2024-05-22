@@ -41,6 +41,7 @@ export default function ListFavoriteTeamFixtureView({
               <TeamFixtureList
                 team={favoriteTeam}
                 teamFixtures={favoriteTeamFixtures}
+                key={favoriteTeamId}
               />
             );
           })}
