@@ -26,7 +26,10 @@ export default function Fixture({
     <div className="bg-snow text-dark h-20 px-16 grid grid-cols-5 items-center rounded-2xl">
       <div className="flex flex-col gap-2">
         {showDate ? (
-          <p className="text-2xs text-iron font-semi-bold leading-3">
+          <p
+            className="text-2xs text-iron font-semi-bold leading-3"
+            data-testid="date"
+          >
             {textDate}
           </p>
         ) : null}
