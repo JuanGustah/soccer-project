@@ -48,6 +48,4 @@ export default function ListFavoriteTeamFixtureView({
       </section>
     );
   }
-
-  return <div>Carregando...</div>;
 }

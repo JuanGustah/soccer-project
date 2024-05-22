@@ -40,6 +40,4 @@ export default function ListDayFixtureView({
       </section>
     );
   }
-
-  return <div>Carregando...</div>;
 }

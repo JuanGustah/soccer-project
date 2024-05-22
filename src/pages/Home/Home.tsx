@@ -5,6 +5,9 @@ import ListDayFixtureView from "./ListDayFixtureView";
 import ListFavoriteTeamFixtureView from "./ListFavoriteTeamFixtureView";
 
 import Background from "@/assets/images/background_list.png";
+import { SuspenseBoundary } from "@/components/SuspenseBoundary";
+import Fallback from "./Fallback";
+import Error from "./Error";
 
 export default function Home() {
   const selectedLeaguesId = [
@@ -27,8 +30,13 @@ export default function Home() {
         className="absolute inset-0 w-full z-negative"
       />
       <Container className="mt-14" htmlTag="main">
-        <ListDayFixtureView selectedLeaguesId={selectedLeaguesId} />
-        <ListFavoriteTeamFixtureView favoriteTeams={favoriteTeams} />
+        <SuspenseBoundary
+          FallbackComponent={<Fallback />}
+          ErrorComponent={Error}
+        >
+          <ListDayFixtureView selectedLeaguesId={selectedLeaguesId} />
+          <ListFavoriteTeamFixtureView favoriteTeams={favoriteTeams} />
+        </SuspenseBoundary>
       </Container>
     </React.Fragment>
   );
