@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 
 import { fetchHttp } from "@/services/http";
 
@@ -8,7 +8,7 @@ export default function useFetch<T>(
   queryParams: fetchQueryParam[],
   staleTime: number
 ) {
-  const query = useQuery({
+  const query = useSuspenseQuery({
     queryFn: () => fetchHttp<T>(queryParams).then((response) => response.data),
     queryKey: queryParams.map((query) => ["fixtures-by" + query.key]),
     staleTime,
