@@ -3,12 +3,16 @@ import { Fixture } from "@/components/Home/Fixture";
 import { IFixtureListProps } from "./types";
 
 export default function FixtureList({ fixtures, showDate }: IFixtureListProps) {
-  const fixtureLeague = fixtures[0].league;
+  const fixtureLeague = fixtures[0]?.league;
+
+  if (fixtures.length === 0) {
+    return null;
+  }
 
   return (
     <div className="flex flex-col gap-y-6 mt-3">
       <h4 className="font-medium text-sm text-snow">{fixtureLeague.name}</h4>
-      <div className="flex flex-col gap-y-8">
+      <div className="flex flex-col gap-y-8" data-testid="fixture-list">
         {fixtures.map((fixtureInfo) => {
           const { id, timestamp } = fixtureInfo.fixture;
           const { away, home } = fixtureInfo.teams;
