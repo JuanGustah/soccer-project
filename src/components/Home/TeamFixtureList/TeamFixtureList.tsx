@@ -3,6 +3,13 @@ import { FixtureList } from "@/components/Home/FixtureList";
 import { ITeamFixtureList } from "./types";
 
 export function TeamFixtureList({ team, teamFixtures }: ITeamFixtureList) {
+  if (
+    Object.keys(team).length === 0 ||
+    Object.keys(teamFixtures).length === 0
+  ) {
+    return null;
+  }
+
   const { id, name, logo } = team;
   const altText = `${name} team logo`;
 
