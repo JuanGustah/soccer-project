@@ -9,8 +9,16 @@ import { IStatisticsProps } from "./types";
 export type buttonGroupKeys = keyof typeof STATS_RELATION;
 
 export default function StatisticList({ statistics }: IStatisticsProps) {
-  const homeStatistics = statistics[0].statistics;
-  const awayStatistics = statistics[1].statistics;
+  const homeStatistics = statistics[0]?.statistics;
+  const awayStatistics = statistics[1]?.statistics;
+
+  if (
+    Object.keys(statistics).length === 0 ||
+    homeStatistics?.length === 0 ||
+    awayStatistics?.length === 0
+  ) {
+    return null;
+  }
 
   return (
     <React.Fragment>
@@ -24,6 +32,7 @@ export default function StatisticList({ statistics }: IStatisticsProps) {
             statName={statName}
             homeStatValue={teamHomeStat}
             awayStatValue={teamAwayStat}
+            key={statistic}
           />
         );
       })}
