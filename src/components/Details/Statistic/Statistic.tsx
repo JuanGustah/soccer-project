@@ -34,6 +34,7 @@ export default function Statistic({
             <div
               className={`rounded-full bg-lime absolute right-0 h-7`}
               style={{ width: `${homeStatWidth}rem` }}
+              data-testid="homeStatisticBar"
             ></div>
           </div>
         </div>
@@ -42,6 +43,7 @@ export default function Statistic({
             <div
               className={`rounded-full bg-lime absolute lef-0 h-7`}
               style={{ width: `${awayStatWidth}rem` }}
+              data-testid="awayStatisticBar"
             ></div>
           </div>
           <span className="font-semi-bold text-white text-md ">
