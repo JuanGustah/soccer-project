@@ -27,11 +27,17 @@ export default function Score({ fixture }: IScore) {
       <div className="flex flex-col items-center mt-6">
         <p className="text-white text-xs font-regular">{statusText}</p>
         <div className="flex gap-7">
-          <p className="text-white text-4xl font-regular font-righteous">
+          <p
+            className="text-white text-4xl font-regular font-righteous"
+            data-testid="homeGoals"
+          >
             {homeGoalsText}
           </p>
           <p className="text-white text-4xl font-bold font-montserrat">-</p>
-          <p className="text-white text-4xl font-regular font-righteous">
+          <p
+            className="text-white text-4xl font-regular font-righteous"
+            data-testid="awayGoals"
+          >
             {awayGoalsText}
           </p>
         </div>
