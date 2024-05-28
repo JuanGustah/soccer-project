@@ -13,9 +13,11 @@ export default function Event({ isEventFromHomeTeam, event }: IEventProps) {
   return (
     <div
       className={`px-6 py-5 bg-white flex justify-between items-center rounded-xl w-3/4 ${rowOrderClass}`}
+      data-testid="eventRow"
     >
       <div
         className={`flex items-center gap-7 ${rowOrderClass} ${textAlignClass}`}
+        data-testid="eventInfoRow"
       >
         <EventIcon eventDetail={event.detail} eventType={eventType} />
         <EventInfo
