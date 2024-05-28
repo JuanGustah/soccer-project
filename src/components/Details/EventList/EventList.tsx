@@ -5,6 +5,10 @@ import { Event } from "@/components/Details/Event";
 import { IEventListProps } from "./types";
 
 export default function EventList({ events, idTeamHome }: IEventListProps) {
+  if (events.length === 0 || !idTeamHome) {
+    return null;
+  }
+
   return (
     <React.Fragment>
       {events.map((event, index: number) => {
