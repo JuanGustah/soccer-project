@@ -8,7 +8,10 @@ export default function FormationLine({
   playersInRow,
 }: IFormationLine) {
   return (
-    <div className="flex flex-col items-center mb-4">
+    <div
+      className="flex flex-col items-center mb-4"
+      data-testid="formationLine"
+    >
       {Array(rowsQtd)
         .fill(undefined)
         .map((_, indexDividedRows) => {
