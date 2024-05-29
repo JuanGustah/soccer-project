@@ -10,7 +10,10 @@ export default function PlayersFormation({
   const goalKeeper = playersPosition[0];
 
   return (
-    <div className="absolute top-0 left-0 flex flex-col items-center w-full h-full">
+    <div
+      className="absolute top-0 left-0 flex flex-col items-center w-full h-full"
+      data-testid="playersFormation"
+    >
       <div className="flex">
         <Player
           number={goalKeeper.player.number}
@@ -25,40 +28,6 @@ export default function PlayersFormation({
             indexFormationRows + 2
         );
 
-        // return (
-        //   <div
-        //     className="flex flex-col items-center mb-4"
-        //     key={indexFormationRows}
-        //   >
-        //     {Array(rowsQtd)
-        //       .fill(undefined)
-        //       .map((_, indexDividedRows) => {
-        //         const playerStartRow = playersInRow.pop()!;
-        //         const playerEndRow =
-        //           playersInRow.length > 0 ? playersInRow.shift() : null;
-        //         const gap = 6 - 6 * indexDividedRows;
-
-        //         return (
-        //           <div
-        //             className="flex"
-        //             style={{ gap: `${gap}rem` }}
-        //             key={`${indexFormationRows}-${indexDividedRows}`}
-        //           >
-        //             <Player
-        //               number={playerStartRow.player.number}
-        //               name={playerStartRow.player.name}
-        //             />
-        //             {playerEndRow ? (
-        //               <Player
-        //                 number={playerEndRow.player.number}
-        //                 name={playerEndRow.player.name}
-        //               />
-        //             ) : null}
-        //           </div>
-        //         );
-        //       })}
-        //   </div>
-        // );
         return (
           <FormationLine
             rowsQtd={rowsQtd}
