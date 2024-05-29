@@ -3,8 +3,8 @@ import FormationLine from "./FormationLine";
 import { playerPositionInGrid } from "@/types/fixture";
 
 let players: playerPositionInGrid[];
-describe("EventList", () => {
-  beforeAll(() => {
+describe("FormationLine", () => {
+  beforeEach(() => {
     players = [
       {
         player: {
