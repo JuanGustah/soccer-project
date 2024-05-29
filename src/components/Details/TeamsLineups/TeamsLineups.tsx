@@ -7,6 +7,12 @@ import { ITeamsLineupsProps } from "./types";
 export default function TeamsLineups({
   lineups: [lineupHome, lineupAway],
 }: ITeamsLineupsProps) {
+  if (
+    Object.keys(lineupHome).length === 0 ||
+    Object.keys(lineupAway).length === 0
+  ) {
+    return null;
+  }
   return (
     <React.Fragment>
       <Lineup
